@@ -5,28 +5,24 @@ import { Component, OnInit } from '@angular/core';
   template: `<h2>
                 Welcome {{ name }}
             </h2>
-            <h2 [style.color]="hasError ? 'red' : 'green'"> Codevolution </h2>
-            <h2 [ngStyle] = "titleStyles"> Style binding 3 </h2>
+            <button (click)="onClick()"> Greet </button>
+            <button (click)="greeting = 'Welcome vishwas'"> Greet </button>
+            {{ greeting }}
             `,
   styles: []
 })
 export class TestComponent implements OnInit {
 
   public name = "Hassan";
-  public hasError = true
-  public isSpecial = true
-  public titleStyles = {
-    color: "blue",
-    fontStyle: "italic"
-  }
+  public greeting = "";
 
+  onClick(){
+    console.log("Welcome to code evolution " + this.name)
+    this.greeting = "Welcome to code evolution " + this.name
+  }
   constructor() { }
 
   ngOnInit(): void {
-  }
-
-  greetuser(){
-    return "Hello " + this.name
   }
 
 }
